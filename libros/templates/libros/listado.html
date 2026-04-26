@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title_head %}Listado de Libros{% endblock title_head %}
+{% block header_h1 %}Bienvenido a mis libros{% endblock header_h1 %}
+{% block mostrar_info %}
+<div class="mb-4">
+    <form action="{% url 'libros:listado' %}" method="get" class="row g-2 align-items-center">
+        <div class="col-auto flex-grow-1">
+            {{ formulario_busqueda }}
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+    <a class="btn btn-success mt-2 mg-5" href="{% url 'libros:crear' %}"><i class="bi bi-plus-circle"></i> Crear nuevo libro</a>
+</div>
+{% if libros %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for libro in libros %}
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            {% if libro.portada %}
+            <img src="{{ libro.portada.url }}" class="card-img-top" alt="Portada de {{ libro.titulo }}" style="object-fit:cover; height:200px;">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ libro.titulo }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ libro.autor }}</h6>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+                <a class="btn btn-outline-primary btn-sm" href="{% url 'libros:detalle' libro.id %}"><i class="bi bi-eye"></i> Ver detalles</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-warning mt-4" role="alert">
+    Lo sentimos, no hay libros que coincidan con esa búsqueda
+</div>
+{% endif %}
+{% endblock mostrar_info %}
+{% block content %}{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title_head %}Creación de Libros{% endblock title_head %}
+{% block header_h1 %}Ingrese su libro a crear{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="mb-4">
+    <form action="{% url 'libros:crear' %}" method="post" class="row g-2 align-items-center" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-auto flex-grow-1">{{ formulario_creacion }}
+            <input type="submit" class="btn btn-success mt-2" value="Crear libro">
+        </div>
+    </form>
+</div>
+{% endblock mostrar_info %}
