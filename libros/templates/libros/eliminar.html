@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title_head %}Eliminación de Libros{% endblock title_head %}
+{% block header_h1 %}Esta seguro de eliminar?{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="mb-4">
+    <form action="{% url 'libros:eliminar' libro.id %}" method="post" class="row g-2 align-items-center" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-auto flex-grow-1">{{ formulario_creacion }}
+            <p>¿Esta seguro de querer elimninar el libro?</p>
+            <input type="submit" class="btn btn-danger mt-2" value="Eliminar libro">
+        </div>
+    </form>
+</div>
+<div>   
+</div>
+{% endblock mostrar_info %}
