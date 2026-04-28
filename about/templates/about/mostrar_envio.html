@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title_head %}Mostrar consultas{% endblock title_head %}
+{% block header_h1 %}Consultas{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="container mb-4">
+    <section>
+        <p class="text-white-75">En esta sección se muestran las consultas realizadas por los usuarios.</p>
+        
+        <div class="row g-4"> {% for info in info_envio %}
+            <div class="col-md-6 col-lg-4"> <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">{{ info.nombre }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ info.email }}</h6>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'about:eliminar_envio' info.id %}"><i class="bi bi-eye"></i> Eliminar</a>
+                        {% if info.mensaje %}
+                            <p class="card-text text-dark">{{ info.mensaje }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="text-white">No hay consultas registradas aún.</p>
+            </div>
+            {% endfor %}
+        </div> 
+    </section>
+</div>
+{% endblock mostrar_info %}
+{% block content %}
+{% endblock content %}

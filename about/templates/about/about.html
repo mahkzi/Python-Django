@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title_head %}Sobre Nosotros{% endblock title_head %}
+{% block header_h1 %}Nuestra historia{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="mb-4">
+    <section>
+        <p>Librark comenzó como un pequeño emprendimiento de venta de libros y artículos para lectores que debido a su buena atención y cuidado con sus clientes fue reconocido y ahora esta escalando el mercado para consolidarse como una empresa mediana-grande.</p>
+    </section>
+</div>
+<div>
+    <section>
+        <p>En Librark nos apasiona el mundo de los libros y la lectura, y nos esforzamos por ofrecer una experiencia de compra excepcional a nuestros clientes. Nuestra misión es proporcionar una amplia selección de libros de alta calidad, desde los clásicos hasta los más recientes éxitos literarios, para satisfacer los gustos y necesidades de todos los lectores.</p>
+        <a class="btn btn-info mt-2" href="{% url "about:contacto" %}">Contactenos</a>
+         <a class="btn btn-info mt-2" href="{% url "about:mostrar_envio" %}">Ver consultas</a>
+    </section>
+</div>
+{% endblock mostrar_info %}
+{% block content %}
+{% endblock content %}

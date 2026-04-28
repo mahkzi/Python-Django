@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title_head %}Contactenos{% endblock title_head %}
+{% block header_h1 %}Envienos su consulta{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="mb-4">
+    <form action="{% url 'about:contacto' %}" method="post" class="row g-2 align-items-center" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-auto flex-grow-1">{{ formulario_creacion }}
+            <input type="submit" class="btn btn-info mt-2" value="Enviar Consulta">
+        </div>
+    </form>
+</div>
+<div>   
+</div>
+{% endblock mostrar_info %}
+{% block content %}
+{% endblock content %}
