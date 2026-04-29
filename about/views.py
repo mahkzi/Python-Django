@@ -3,6 +3,8 @@ from about.models import About
 from about.forms import AboutForm
 from django.views.generic import CreateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CrearAbout(CreateView):
     model = About
@@ -22,11 +24,13 @@ def contacto(request):
 
 def envio(request):
     return render (request, "about/envio.html")
+
+@login_required
 def mostrar_envio(request):
     info_envio = About.objects.all()
     return render(request, "about/mostrar_envio.html", {"info_envio": info_envio})
 
-class EliminarEnvio(DeleteView):
+class EliminarEnvio(LoginRequiredMixin,DeleteView):
     model = About
     template_name = "about/eliminar_envio.html"
     success_url = reverse_lazy("about:about")

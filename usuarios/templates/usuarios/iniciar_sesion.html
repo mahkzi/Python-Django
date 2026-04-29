@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title_head %}Iniciar Sesión{% endblock title_head %}
+{% block header_h1 %}Inicie Sesión en su cuenta!{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">Iniciar Sesión</h3>
+                    
+                    <form action="{% url 'usuarios:iniciar_sesion' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="form-fields mb-3">
+                            {{ formulario_iniciar_sesion }}
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-info text-white fw-bold">
+                                Entrar
+                            </button>
+                        </div>
+                    </form>
+                    <hr class="my-4">
+                    <div class="text-center">
+                        <p class="mb-0 text-muted">¿No tienes una cuenta?</p>
+                        <a href="{% url 'usuarios:registro' %}" class="link-info text-decoration-none fw-bold">
+                            Regístrate aquí
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock mostrar_info %}
+{% block content %}
+{% endblock content %}

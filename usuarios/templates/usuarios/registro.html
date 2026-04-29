@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title_head %}Registrarse{% endblock title_head %}
+{% block header_h1 %}Registrarse{% endblock header_h1 %}
+{% block mostrar_info %} 
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow border-0" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4" style="color: #2c3e50; font-weight: 700;">Registro de Usuario</h2>
+                    
+                    <form action="{% url 'usuarios:registro' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="custom-django-form">
+                            {{ formulario_registro.as_p }}
+                        </div>
+                        
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-info text-white fw-bold py-2 shadow-sm" style="border-radius: 8px; font-size: 1.1rem;">
+                                Crear mi cuenta
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <hr class="text-muted">
+                        <p class="text-muted mb-1">¿Ya tienes una cuenta?</p>
+                        <a href="{% url 'usuarios:iniciar_sesion' %}" class="text-info fw-bold text-decoration-none" style="font-size: 1.1rem;">
+                            Inicia sesión aquí
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock mostrar_info %}
+{% block content %}
+{% endblock content %}
