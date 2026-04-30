@@ -35,8 +35,7 @@
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/mahkzi/Blog-Python.git](https://github.com/mahkzi/Blog-Python.git)
-    cd Blog-Python
+    git clone https://github.com/mahkzi/Python-Django.git
     ```
 
 2.  **Instalar dependencias:**
