@@ -63,10 +63,10 @@
 ---
 
 ## 📂 Estructura del Proyecto
-*   `/config`: Configuraciones de proyecto y rutas globales[cite: 32].
-*   `/libros`: Lógica de negocio para el catálogo de la librería[cite: 36, 37].
-*   `/usuarios`: Manejo de cuentas de usuario, seguridad y perfiles extendidos[cite: 31, 33].
-*   `/about`: Módulo informativo, formularios de contacto y gestión de envíos[cite: 39, 40].
+*   `/config`: Configuraciones de proyecto y rutas globales.
+*   `/libros`: Lógica de negocio para el catálogo de la librería.
+*   `/usuarios`: Manejo de cuentas de usuario, seguridad y perfiles extendidos.
+*   `/about`: Módulo informativo, formularios de contacto y gestión de envíos.
 
 ---
 *Este proyecto fue desarrollado como parte de la entrega final del curso de Python.*
