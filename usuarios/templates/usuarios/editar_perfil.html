@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title_head %}Editar Perfil{% endblock title_head %}
+{% block header_h1 %}Editar Perfil{% endblock header_h1 %}
+{% block mostrar_info %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Editar Perfil</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form_usuario }}
+                        {{ form_avatar }}
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="submit" class="btn btn-success">Guardar cambios</button>
+                            <a href="{% url 'usuarios:perfil' %}" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'usuarios:cambiar_password' %}" class="btn btn-warning w-100">Cambiar Contraseña</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock mostrar_info%}

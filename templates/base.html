@@ -36,7 +36,7 @@
                         <li class="nav-item">
                         <form class="d-inline" action="{% url 'usuarios:cerrar_sesion' %}" method="post">
                         {% csrf_token %}
-                        <input type="submit" class="btn btn-info" value="Cerrar Sesión">
+                        <input type="submit" class="nav-link-grey" value="Cerrar Sesión">
                         </form>
                         </li>
                         {% else %}

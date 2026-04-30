@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login, logout
-from usuarios.forms import CreacionUsuarioForm
+from django.contrib.auth import login
+from usuarios.forms import CreacionUsuarioForm, EditarAvatarForm, EditarUsuarioForm
+from usuarios.models import Perfil
 from django.contrib.auth.decorators import login_required
+
 
 
 def iniciar_sesion (request):
@@ -28,6 +30,27 @@ def registro (request):
         formulario_registro = CreacionUsuarioForm()
     return render (request, "usuarios/registro.html", {"formulario_registro":formulario_registro})
 
+def perfil (request):
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+    return render(request, "usuarios/perfil.html",)
+
 @login_required
-def perfil(request):
-    return render (request, "usuarios/perfil.html")
+def editar_perfil(request):
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+
+    if request.method == "POST":
+        form_usuario = EditarUsuarioForm(request.POST, instance=request.user)
+        form_avatar = EditarAvatarForm(request.POST, request.FILES, instance=perfil)
+
+        if form_usuario.is_valid() and form_avatar.is_valid():
+            form_usuario.save()
+            form_avatar.save()
+            return redirect("usuarios:perfil")
+    else:
+        form_usuario = EditarUsuarioForm(instance=request.user)
+        form_avatar = EditarAvatarForm(instance=perfil)
+
+    return render(request, "usuarios/editar_perfil.html", {
+        "form_usuario": form_usuario,
+        "form_avatar": form_avatar
+    })
