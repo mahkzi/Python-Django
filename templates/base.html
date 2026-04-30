@@ -31,7 +31,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url "libros:listado" %}">Libros</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item">
-                            <a href="{% url "usuarios:perfil" %}" class="nav-link d-inline">Hola, {{request.user.username}}</a>
+                            <a href="{% url "usuarios:perfil" %}" class="nav-link d-inline h-50">Hola, {{request.user.username}}</a>
                         </li>
                         <li class="nav-item">
                         <form class="d-inline" action="{% url 'usuarios:cerrar_sesion' %}" method="post">

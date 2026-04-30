@@ -29,7 +29,7 @@ class CreacionUsuarioForm(UserCreationForm):
 class EditarUsuarioForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ["username", "first_name", "last_name", "email"]
+        fields = ["username", "first_name", "last_name", "email",]
         labels = {
             "username": "Nombre de Usuario",
             "first_name": "Nombre",
@@ -46,8 +46,11 @@ class EditarUsuarioForm(forms.ModelForm):
 class EditarAvatarForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ["avatar"]
-        labels = {"avatar": "Imagen de Perfil"}
+        fields = ["avatar", "hobbies"]
+        labels = {
+            "avatar": "Imagen de Perfil",
+            "hobbies": "Mis Hobbies"
+            }
         
 class MiCambioPasswordForm(PasswordChangeForm):
    
