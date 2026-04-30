@@ -1,6 +1,6 @@
 # Librark - Gestión de E-commerce de Libros
 
-**Librark** comenzó como un pequeño emprendimiento de venta de libros y artículos para lectores[cite: 38]. Debido a su enfoque en la atención al cliente, la plataforma ha evolucionado para consolidarse como un sistema de gestión integral que ofrece una experiencia de compra excepcional, abarcando desde clásicos hasta los éxitos literarios más recientes.
+**Librark** comenzó como un pequeño emprendimiento de venta de libros y artículos para lectores. Debido a su enfoque en la atención al cliente, la plataforma ha evolucionado para consolidarse como un sistema de gestión integral que ofrece una experiencia de compra excepcional, abarcando desde clásicos hasta los éxitos literarios más recientes.
 
 ---
 
